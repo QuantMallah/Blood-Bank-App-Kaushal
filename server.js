@@ -1,5 +1,7 @@
 const express = require("express");
-const dotenv = require("dotenv");
+const dotenv = require("dotenv");//
+// const dotenv = require('dotenv');
+// dotenv.config({ path: './config/config.env' });
 const colors = require("colors");
 const morgan = require("morgan");
 const cors = require("cors");
@@ -7,42 +9,39 @@ const connectDB = require("./config/db");
 //dot config
 dotenv.config();
 
-// mongodb connection
-connectDB()
-  .then(() => {})
-  .catch(() => {});
+//mongodb connection
+connectDB();
 
-// rest object
+//rest object
 const app = express();
 
-// middlewares
+//middlewares
 app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 
-// routs
-// 1 test routs
-app.use("/api/v1/test", require("./routes/testRouts"));
-
-// register route
+//routes
+// 1 test route
+// app.use("/api/v1/test", require("./routes/testRoutes"));
 app.use("/api/v1/auth", require("./routes/authRoutes"));
-
-// inventory route
 app.use("/api/v1/inventory", require("./routes/inventoryRoutes"));
-
-// analytics route
 app.use("/api/v1/analytics", require("./routes/analyticsRoutes"));
-
-// admin route
 app.use("/api/v1/admin", require("./routes/adminRoutes"));
 
-// port
-const PORT = process.env.PORT || 5505;
+// // 1 test route
+// app.use("/test", require("./routes/testRoutes"));
+// app.use("/auth", require("./routes/authRoutes"));
+// app.use("/inventory", require("./routes/inventoryRoutes"));
+// app.use("/analytics", require("./routes/analyticsRoutes"));
+// app.use("/admin", require("./routes/adminRoutes"));
 
-// listen
+//port
+const PORT = process.env.PORT || 6565;
+
+//listen
 app.listen(PORT, () => {
   console.log(
-    `Node server is running In ${process.env.DEV_MODE} Mode on ${process.env.PORT} port`
+    `Node Server Running In ${process.env.DEV_MODE} ModeOn Port ${process.env.PORT}`
       .bgBlue.white
   );
 });
