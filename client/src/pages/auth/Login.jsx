@@ -19,7 +19,7 @@ const Login = () => {
             </div>
             <Form
               formType={"login"}
-              formTitle={"Login in to your account"}
+              formTitle={"Login In To Your Account"}
               submitBtn={"Login"}
             />
           </div>
