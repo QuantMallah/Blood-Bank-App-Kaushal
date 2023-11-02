@@ -44,7 +44,7 @@ export const handleRegister = (
       })
     );
   } catch (error) {
-    alert("error accrued");
+    alert("error occured");
     console.log(error);
   }
 };

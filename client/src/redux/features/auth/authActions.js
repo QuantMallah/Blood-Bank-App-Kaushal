@@ -19,7 +19,7 @@ export const userLogin = createAsyncThunk(
       if (error.response && error.response.data.message) {
         return rejectWithValue(error.response.data.message);
       } else {
-        alert("error accrued");
+        alert("error occured");
         return rejectWithValue(error.message);
       }
     }
